@@ -9,8 +9,31 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        background: "var(--background)",
-        foreground: "var(--foreground)",
+        // AXIS design tokens
+        bg: {
+          base: "#0f0c08",
+          elevated: "#1a1208",
+          surface: "#0a0806",
+          border: "#2e1e0e",
+          'border-hover': "#3a2810",
+        },
+        brand: {
+          orange: "#c95a2a",
+          'orange-muted': "rgba(201,90,42,0.1)",
+          'orange-border': "rgba(201,90,42,0.3)",
+        },
+        text: {
+          cream: "#f5ede3",
+          muted: "#7a6654",
+          faint: "#4a3828",
+        },
+      },
+      fontFamily: {
+        barlow: ["'Barlow Condensed'", "sans-serif"],
+        mono: ["'IBM Plex Mono'", "monospace"],
+      },
+      screens: {
+        '3xl': '1400px',
       },
     },
   },
