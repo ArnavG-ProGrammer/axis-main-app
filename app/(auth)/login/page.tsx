@@ -69,6 +69,9 @@ export default function LoginPage() {
     const { data: authData, error } = await supabase.auth.signUp({
       email: data.email,
       password: data.password,
+      options: {
+        emailRedirectTo: `${process.env.NEXT_PUBLIC_SITE_URL ?? window.location.origin}/onboarding`,
+      },
     })
     if (error) {
       setError(error.message)
