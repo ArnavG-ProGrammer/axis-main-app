@@ -5,9 +5,9 @@
 @tailwind utilities;
 
 :root {
-  --bg-base: #0f0c08;
-  --bg-elevated: #1a1208;
-  --bg-surface: #0a0806;
+  --bg-base: #1a1208;
+  --bg-elevated: #221508;
+  --bg-surface: #150e05;
   --border: #2e1e0e;
   --border-hover: #3a2810;
   --orange: #c95a2a;
@@ -28,6 +28,17 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   overflow-x: hidden;
+}
+
+/* Fix browser autofill white background */
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+  -webkit-box-shadow: 0 0 0px 1000px #221508 inset !important;
+  -webkit-text-fill-color: #f5ede3 !important;
+  caret-color: #f5ede3;
+  transition: background-color 9999s ease-in-out 0s;
 }
 
 ::-webkit-scrollbar {
