@@ -125,14 +125,14 @@ export default function MarketsPage() {
   const supabase = createClient()
 
   // Valuation state
-  const [revenue, setRevenue] = useState(0)
+  const [revenue, setRevenue] = useState('')
   const [noRevenue, setNoRevenue] = useState(false)
-  const [growthRate, setGrowthRate] = useState(0)
+  const [growthRate, setGrowthRate] = useState('')
   const [sector, setSector] = useState('SaaS')
   const [stage, setStage] = useState('Pre-revenue')
   const [teamSize, setTeamSize] = useState('2-10')
-  const [mau, setMau] = useState(0)
-  const [nrr, setNrr] = useState(0)
+  const [mau, setMau] = useState('')
+  const [nrr, setNrr] = useState('')
   const [hasIP, setHasIP] = useState(false)
   const [hasPartnerships, setHasPartnerships] = useState(false)
   const [result, setResult] = useState<ValuationResult | null>(null)
@@ -167,14 +167,19 @@ export default function MarketsPage() {
   }
 
   function calculateValuation() {
+    const revNum = Number(revenue) || 0
+    const growthNum = Number(growthRate) || 0
+    const mauNum = Number(mau) || 0
+    const nrrNum = Number(nrr) || 0
+
     const [multLow, multHigh] = SECTOR_MULTIPLES[sector] ?? [3, 8]
     const multMid = (multLow + multHigh) / 2
     let base = 0
     let methodology = ''
     let usedMultiple = multMid
 
-    if (!noRevenue && revenue > 0) {
-      base = revenue * multMid
+    if (!noRevenue && revNum > 0) {
+      base = revNum * multMid
       methodology = `Revenue × ${multMid}x sector multiple (${sector}: ${multLow}-${multHigh}x range)`
       usedMultiple = multMid
     } else {
@@ -185,12 +190,12 @@ export default function MarketsPage() {
     }
 
     let adj = 1
-    if (growthRate > 100) { adj *= 1.5; methodology += ' · growth >100% (+50%)' }
-    else if (growthRate > 50) { adj *= 1.25; methodology += ' · growth >50% (+25%)' }
-    if (nrr > 120) { adj *= 1.3; methodology += ' · NRR >120% (+30%)' }
+    if (growthNum > 100) { adj *= 1.5; methodology += ' · growth >100% (+50%)' }
+    else if (growthNum > 50) { adj *= 1.25; methodology += ' · growth >50% (+25%)' }
+    if (nrrNum > 120) { adj *= 1.3; methodology += ' · NRR >120% (+30%)' }
     if (hasIP) { adj *= 1.2; methodology += ' · IP (+20%)' }
     if (hasPartnerships) { adj *= 1.15; methodology += ' · partnerships (+15%)' }
-    if (mau > 10000) { adj *= 1.2; methodology += ' · MAU >10K (+20%)' }
+    if (mauNum > 10000) { adj *= 1.2; methodology += ' · MAU >10K (+20%)' }
 
     const adjusted = base * adj
     setResult({
@@ -301,7 +306,7 @@ export default function MarketsPage() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
             {/* Section 1: Revenue */}
-            <div className="rounded p-5" style={{ background: '#1a1208', border: '1px solid #2e1e0e' }}>
+            <div className="rounded p-5" style={{ background: '#221508', border: '1px solid #2e1e0e' }}>
               <p className="text-[9px] font-mono uppercase tracking-widest mb-4" style={{ color: '#c95a2a', fontFamily: "'IBM Plex Mono', monospace" }}>Revenue</p>
               <div className="flex flex-col gap-4">
                 <label className="flex items-center gap-2 text-xs font-mono cursor-pointer" style={{ color: '#7a6654', fontFamily: "'IBM Plex Mono', monospace" }}>
@@ -311,18 +316,18 @@ export default function MarketsPage() {
                 {!noRevenue && (
                   <div>
                     <label className="block text-[9px] font-mono uppercase tracking-widest mb-1" style={{ color: '#4a3828', fontFamily: "'IBM Plex Mono', monospace" }}>Annual Revenue (₹)</label>
-                    <input type="number" value={revenue} onChange={e => setRevenue(Number(e.target.value))} className="w-full bg-transparent border-b py-1 text-sm outline-none" style={{ borderColor: '#2e1e0e', color: '#f5ede3', fontFamily: "'Barlow Condensed', sans-serif" }} />
+                    <input type="number" value={revenue} onChange={e => setRevenue(e.target.value)} placeholder="e.g. 5000000" className="w-full bg-transparent border-b py-1 text-sm outline-none" style={{ borderColor: '#2e1e0e', color: '#f5ede3', fontFamily: "'Barlow Condensed', sans-serif" }} />
                   </div>
                 )}
                 <div>
                   <label className="block text-[9px] font-mono uppercase tracking-widest mb-1" style={{ color: '#4a3828', fontFamily: "'IBM Plex Mono', monospace" }}>Growth Rate % (last 12m)</label>
-                  <input type="number" value={growthRate} onChange={e => setGrowthRate(Number(e.target.value))} className="w-full bg-transparent border-b py-1 text-sm outline-none" style={{ borderColor: '#2e1e0e', color: '#f5ede3', fontFamily: "'Barlow Condensed', sans-serif" }} />
+                  <input type="number" value={growthRate} onChange={e => setGrowthRate(e.target.value)} placeholder="e.g. 50" className="w-full bg-transparent border-b py-1 text-sm outline-none" style={{ borderColor: '#2e1e0e', color: '#f5ede3', fontFamily: "'Barlow Condensed', sans-serif" }} />
                 </div>
               </div>
             </div>
 
             {/* Section 2: Business */}
-            <div className="rounded p-5" style={{ background: '#1a1208', border: '1px solid #2e1e0e' }}>
+            <div className="rounded p-5" style={{ background: '#221508', border: '1px solid #2e1e0e' }}>
               <p className="text-[9px] font-mono uppercase tracking-widest mb-4" style={{ color: '#c95a2a', fontFamily: "'IBM Plex Mono', monospace" }}>Business</p>
               <div className="flex flex-col gap-4">
                 {[
@@ -332,8 +337,8 @@ export default function MarketsPage() {
                 ].map(f => (
                   <div key={f.label}>
                     <label className="block text-[9px] font-mono uppercase tracking-widest mb-1" style={{ color: '#4a3828', fontFamily: "'IBM Plex Mono', monospace" }}>{f.label}</label>
-                    <select value={f.value} onChange={e => f.set(e.target.value)} className="w-full bg-transparent border-b py-1 text-sm outline-none appearance-none" style={{ borderColor: '#2e1e0e', color: '#f5ede3', fontFamily: "'Barlow Condensed', sans-serif", background: '#1a1208' }}>
-                      {f.options.map(o => <option key={o} value={o} style={{ background: '#1a1208' }}>{o}</option>)}
+                    <select value={f.value} onChange={e => f.set(e.target.value)} className="w-full bg-transparent border-b py-1 text-sm outline-none appearance-none" style={{ borderColor: '#2e1e0e', color: '#f5ede3', fontFamily: "'Barlow Condensed', sans-serif", background: '#221508' }}>
+                      {f.options.map(o => <option key={o} value={o} style={{ background: '#221508' }}>{o}</option>)}
                     </select>
                   </div>
                 ))}
@@ -341,16 +346,16 @@ export default function MarketsPage() {
             </div>
 
             {/* Section 3: Traction */}
-            <div className="rounded p-5 md:col-span-2" style={{ background: '#1a1208', border: '1px solid #2e1e0e' }}>
+            <div className="rounded p-5 md:col-span-2" style={{ background: '#221508', border: '1px solid #2e1e0e' }}>
               <p className="text-[9px] font-mono uppercase tracking-widest mb-4" style={{ color: '#c95a2a', fontFamily: "'IBM Plex Mono', monospace" }}>Traction</p>
               <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
                 {[
-                  { label: 'Monthly Active Users', value: mau, set: setMau },
-                  { label: 'NRR %', value: nrr, set: setNrr },
+                  { label: 'Monthly Active Users', value: mau, set: setMau, placeholder: 'e.g. 5000' },
+                  { label: 'NRR %', value: nrr, set: setNrr, placeholder: 'e.g. 110' },
                 ].map(f => (
                   <div key={f.label}>
                     <label className="block text-[9px] font-mono uppercase tracking-widest mb-1" style={{ color: '#4a3828', fontFamily: "'IBM Plex Mono', monospace" }}>{f.label}</label>
-                    <input type="number" value={f.value} onChange={e => f.set(Number(e.target.value))} className="w-full bg-transparent border-b py-1 text-sm outline-none" style={{ borderColor: '#2e1e0e', color: '#f5ede3', fontFamily: "'Barlow Condensed', sans-serif" }} />
+                    <input type="number" value={f.value} onChange={e => f.set(e.target.value)} placeholder={f.placeholder} className="w-full bg-transparent border-b py-1 text-sm outline-none" style={{ borderColor: '#2e1e0e', color: '#f5ede3', fontFamily: "'Barlow Condensed', sans-serif" }} />
                   </div>
                 ))}
                 <div className="flex flex-col gap-3 pt-2">
@@ -373,7 +378,7 @@ export default function MarketsPage() {
 
           {/* Result */}
           {result && (
-            <div className="rounded p-6 mb-6" style={{ background: '#1a1208', border: '1px solid #2e1e0e' }}>
+            <div className="rounded p-6 mb-6" style={{ background: '#221508', border: '1px solid #2e1e0e' }}>
               <p className="text-[9px] font-mono uppercase tracking-widest mb-2" style={{ color: '#7a6654', fontFamily: "'IBM Plex Mono', monospace" }}>Estimated Range</p>
               <p className="text-5xl font-bold mb-2" style={{ color: '#c95a2a', fontFamily: "'Barlow Condensed', sans-serif" }}>
                 {formatCrore(result.low)} — {formatCrore(result.high)}
@@ -416,7 +421,7 @@ export default function MarketsPage() {
               <p className="text-[9px] font-mono uppercase tracking-widest mb-3" style={{ color: '#7a6654', fontFamily: "'IBM Plex Mono', monospace" }}>Valuation History</p>
               <div className="flex flex-col gap-2">
                 {snapshots.map(s => (
-                  <div key={s.id} className="rounded px-4 py-3 flex items-center justify-between" style={{ background: '#1a1208', border: '1px solid #2e1e0e' }}>
+                  <div key={s.id} className="rounded px-4 py-3 flex items-center justify-between" style={{ background: '#221508', border: '1px solid #2e1e0e' }}>
                     <div>
                       <p className="text-sm font-bold" style={{ color: '#f5ede3', fontFamily: "'Barlow Condensed', sans-serif" }}>
                         {formatCrore(s.estimated_low)} — {formatCrore(s.estimated_high)}
