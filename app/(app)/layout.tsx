@@ -8,7 +8,7 @@ export default function AppLayout({ children }: { children: React.ReactNode }) {
   return (
     <CompanyProvider>
       <ToastProvider>
-        <div className="min-h-screen" style={{ background: '#0f0c08' }}>
+        <div className="min-h-screen" style={{ background: '#1a1208' }}>
           {/* Sidebars — hidden on mobile */}
           <div className="hidden md:block">
             <LeftSidebar />

@@ -137,7 +137,7 @@ export default function FeedPage() {
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0, y: -20 }}
           className="fixed top-4 left-1/2 -translate-x-1/2 z-50 px-4 py-2 rounded text-xs font-mono"
-          style={{ background: '#1a1208', border: '1px solid #c95a2a', color: '#c95a2a', fontFamily: "'IBM Plex Mono', monospace" }}
+          style={{ background: '#221508', border: '1px solid #c95a2a', color: '#c95a2a', fontFamily: "'IBM Plex Mono', monospace" }}
         >
           {newPostBanner}
         </motion.div>
@@ -145,7 +145,7 @@ export default function FeedPage() {
 
       {/* Compose box */}
       {company && (
-        <div className="px-5 py-4 border-b" style={{ borderColor: '#1a1208' }}>
+        <div className="px-5 py-4 border-b" style={{ borderColor: '#2e1e0e' }}>
           <div className="flex gap-3">
             <CompanyAvatar name={company.name} logoUrl={company.logo_url} size={40} />
             <div className="flex-1">
@@ -157,7 +157,7 @@ export default function FeedPage() {
                 className="w-full bg-transparent outline-none resize-none text-sm leading-relaxed placeholder:text-[#3a2810]"
                 style={{ color: '#f5ede3', fontFamily: "'Barlow Condensed', sans-serif", fontSize: 15 }}
               />
-              <div className="flex items-center justify-between mt-2 pt-2 border-t" style={{ borderColor: '#1a1208' }}>
+              <div className="flex items-center justify-between mt-2 pt-2 border-t" style={{ borderColor: '#2e1e0e' }}>
                 <button
                   onClick={() => setIsOpportunity(v => !v)}
                   className="text-[10px] font-mono px-3 py-1.5 rounded transition-all"
@@ -185,7 +185,7 @@ export default function FeedPage() {
       )}
 
       {/* Filter tabs */}
-      <div className="flex border-b" style={{ borderColor: '#1a1208' }}>
+      <div className="flex border-b" style={{ borderColor: '#2e1e0e' }}>
         {FILTERS.map(f => (
           <button
             key={f.key}
@@ -206,13 +206,13 @@ export default function FeedPage() {
       {loading ? (
         <div className="flex flex-col">
           {[...Array(5)].map((_, i) => (
-            <div key={i} className="px-5 py-4 border-b animate-pulse" style={{ borderColor: '#1a1208' }}>
+            <div key={i} className="px-5 py-4 border-b animate-pulse" style={{ borderColor: '#2e1e0e' }}>
               <div className="flex gap-3">
-                <div className="w-10 h-10 rounded-full" style={{ background: '#1a1208' }} />
+                <div className="w-10 h-10 rounded-full" style={{ background: '#221508' }} />
                 <div className="flex-1 flex flex-col gap-2">
-                  <div className="h-3 rounded w-32" style={{ background: '#1a1208' }} />
-                  <div className="h-3 rounded w-full" style={{ background: '#1a1208' }} />
-                  <div className="h-3 rounded w-3/4" style={{ background: '#1a1208' }} />
+                  <div className="h-3 rounded w-32" style={{ background: '#221508' }} />
+                  <div className="h-3 rounded w-full" style={{ background: '#221508' }} />
+                  <div className="h-3 rounded w-3/4" style={{ background: '#221508' }} />
                 </div>
               </div>
             </div>

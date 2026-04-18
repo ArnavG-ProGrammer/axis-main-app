@@ -142,11 +142,11 @@ export default function CompanyProfilePage() {
     return (
       <div className="max-w-2xl mx-auto">
         <div className="animate-pulse">
-          <div className="h-40 w-full" style={{ background: '#1a1208' }} />
+          <div className="h-40 w-full" style={{ background: '#221508' }} />
           <div className="px-6 pt-10 flex flex-col gap-3">
-            <div className="h-6 w-48 rounded" style={{ background: '#1a1208' }} />
-            <div className="h-4 w-32 rounded" style={{ background: '#1a1208' }} />
-            <div className="h-16 w-full rounded" style={{ background: '#1a1208' }} />
+            <div className="h-6 w-48 rounded" style={{ background: '#221508' }} />
+            <div className="h-4 w-32 rounded" style={{ background: '#221508' }} />
+            <div className="h-16 w-full rounded" style={{ background: '#221508' }} />
           </div>
         </div>
       </div>
@@ -190,7 +190,7 @@ export default function CompanyProfilePage() {
           className="absolute"
           style={{ bottom: -32, left: 24 }}
         >
-          <div style={{ border: '3px solid #0f0c08', borderRadius: '50%' }}>
+          <div style={{ border: '3px solid #1a1208', borderRadius: '50%' }}>
             <CompanyAvatar name={company.name} logoUrl={company.logo_url} size={64} />
           </div>
         </div>
@@ -289,7 +289,7 @@ export default function CompanyProfilePage() {
         )}
 
         {/* Stats */}
-        <div className="flex gap-6 mt-4 pt-4 border-t" style={{ borderColor: '#1a1208' }}>
+        <div className="flex gap-6 mt-4 pt-4 border-t" style={{ borderColor: '#2e1e0e' }}>
           {[
             { label: 'Followers', value: company.followers_count },
             { label: 'Following', value: company.following_count },
@@ -304,7 +304,7 @@ export default function CompanyProfilePage() {
       </div>
 
       {/* Tabs */}
-      <div className="flex border-b" style={{ borderColor: '#1a1208' }}>
+      <div className="flex border-b" style={{ borderColor: '#2e1e0e' }}>
         {TABS.map(t => (
           <button
             key={t.key}
@@ -375,7 +375,7 @@ export default function CompanyProfilePage() {
             <p className="text-xl font-bold" style={{ color: '#f5ede3', fontFamily: "'Barlow Condensed', sans-serif" }}>No partnerships yet.</p>
           </div>
         ) : (
-          <div className="flex flex-col divide-y" style={{ borderColor: '#1a1208' }}>
+          <div className="flex flex-col divide-y" style={{ borderColor: '#2e1e0e' }}>
             {partnerships.map(pr => (
               <div key={pr.id} className="px-6 py-4 flex items-center justify-between gap-4">
                 <div className="flex items-center gap-2 flex-wrap text-sm" style={{ color: '#f5ede3', fontFamily: "'Barlow Condensed', sans-serif" }}>

@@ -82,7 +82,7 @@ export default function PartnershipsPage() {
       <h1 className="text-3xl font-bold mb-6" style={{ color: '#f5ede3', fontFamily: "'Barlow Condensed', sans-serif" }}>Partnerships</h1>
 
       {/* Tabs */}
-      <div className="flex border-b mb-6" style={{ borderColor: '#1a1208' }}>
+      <div className="flex border-b mb-6" style={{ borderColor: '#2e1e0e' }}>
         {TABS.map(t => (
           <button key={t.key} onClick={() => setTab(t.key)}
             className="px-5 py-3 text-[11px] font-mono uppercase tracking-widest transition-colors"

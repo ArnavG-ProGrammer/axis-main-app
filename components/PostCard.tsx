@@ -82,7 +82,7 @@ export default function PostCard({ post, onRequestSent }: PostCardProps) {
   return (
     <article
       className="px-5 py-4 border-b"
-      style={{ borderColor: '#1a1208' }}
+      style={{ borderColor: '#2e1e0e' }}
     >
       <div className="flex gap-3">
         {/* Avatar */}
@@ -117,7 +117,7 @@ export default function PostCard({ post, onRequestSent }: PostCardProps) {
               className="text-[10px] font-mono flex-shrink-0 px-2 py-0.5 rounded"
               style={{
                 color: '#7a6654',
-                background: '#1a1208',
+                background: '#221508',
                 fontFamily: "'IBM Plex Mono', monospace",
               }}
             >
@@ -188,7 +188,7 @@ export default function PostCard({ post, onRequestSent }: PostCardProps) {
 
           {/* Inline comments */}
           {showComments && (
-            <div className="mt-3 pt-3 border-t" style={{ borderColor: '#1a1208' }}>
+            <div className="mt-3 pt-3 border-t" style={{ borderColor: '#2e1e0e' }}>
               <div className="flex gap-2">
                 <CompanyAvatar name={company?.name ?? '?'} logoUrl={company?.logo_url} size={24} />
                 <input

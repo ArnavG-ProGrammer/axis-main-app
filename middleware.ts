@@ -24,23 +24,34 @@ export async function middleware(request: NextRequest) {
     }
   )
 
-  const { data: { session } } = await supabase.auth.getSession()
+  const { data: { user } } = await supabase.auth.getUser()
   const { pathname } = request.nextUrl
 
+  // Allow public routes and auth callback
   const publicRoutes = ['/', '/login', '/signup']
-  if (publicRoutes.includes(pathname)) return response
+  if (publicRoutes.includes(pathname) || pathname.startsWith('/auth/callback')) {
+    return response
+  }
 
-  if (!session) return NextResponse.redirect(new URL('/login', request.url))
-  if (pathname === '/onboarding') return response
+  // No user → redirect to login
+  if (!user) return NextResponse.redirect(new URL('/login', request.url))
 
-  if (pathname.startsWith('/dashboard')) {
-    const { data: company } = await supabase
-      .from('companies')
-      .select('id')
-      .eq('user_id', session.user.id)
-      .single()
+  // Check if user has a company
+  const { data: company } = await supabase
+    .from('companies')
+    .select('id')
+    .eq('user_id', user.id)
+    .single()
 
-    if (!company) return NextResponse.redirect(new URL('/onboarding', request.url))
+  // At /onboarding — if company exists, send to dashboard
+  if (pathname === '/onboarding') {
+    if (company) return NextResponse.redirect(new URL('/dashboard', request.url))
+    return response
+  }
+
+  // At /dashboard/* — if no company, send to onboarding
+  if (pathname.startsWith('/dashboard') && !company) {
+    return NextResponse.redirect(new URL('/onboarding', request.url))
   }
 
   return response

@@ -68,7 +68,7 @@ export default function RightSidebar() {
   return (
     <aside
       className="fixed right-0 top-0 h-screen overflow-y-auto px-5 py-6 hidden xl:flex flex-col gap-6"
-      style={{ width: 280, background: '#0a0806', borderLeft: '1px solid #1a1208' }}
+      style={{ width: 280, background: '#150e05', borderLeft: '1px solid #2e1e0e' }}
     >
       {/* Trending */}
       <div>

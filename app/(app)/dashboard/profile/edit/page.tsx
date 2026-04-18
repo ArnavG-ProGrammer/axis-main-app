@@ -163,7 +163,7 @@ export default function EditProfilePage() {
         {/* Sector */}
         <div>
           <label className="block text-[9px] font-mono uppercase tracking-widest mb-2" style={labelStyle}>Sector</label>
-          <select {...register('sector')} className="w-full bg-transparent border-0 border-b px-0 py-2 text-sm outline-none appearance-none" style={{ ...inputStyle, background: '#0f0c08' }}>
+          <select {...register('sector')} className="w-full bg-transparent border-0 border-b px-0 py-2 text-sm outline-none appearance-none" style={{ ...inputStyle, background: '#1a1208' }}>
             {SECTORS.map(s => <option key={s} value={s} style={{ background: '#1a1208' }}>{s}</option>)}
           </select>
         </div>
@@ -171,7 +171,7 @@ export default function EditProfilePage() {
         {/* Team size */}
         <div>
           <label className="block text-[9px] font-mono uppercase tracking-widest mb-2" style={labelStyle}>Team Size</label>
-          <select {...register('team_size')} className="w-full bg-transparent border-0 border-b px-0 py-2 text-sm outline-none appearance-none" style={{ ...inputStyle, background: '#0f0c08' }}>
+          <select {...register('team_size')} className="w-full bg-transparent border-0 border-b px-0 py-2 text-sm outline-none appearance-none" style={{ ...inputStyle, background: '#1a1208' }}>
             <option value="" style={{ background: '#1a1208' }}>Select...</option>
             {TEAM_SIZES.map(s => <option key={s} value={s} style={{ background: '#1a1208' }}>{s}</option>)}
           </select>

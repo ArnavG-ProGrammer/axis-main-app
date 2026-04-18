@@ -121,10 +121,10 @@ export default function ActivityPage() {
         <div className="flex flex-col gap-4">
           {[...Array(6)].map((_, i) => (
             <div key={i} className="flex items-center gap-3 animate-pulse">
-              <div className="w-9 h-9 rounded" style={{ background: '#1a1208', flexShrink: 0 }} />
+              <div className="w-9 h-9 rounded" style={{ background: '#221508', flexShrink: 0 }} />
               <div className="flex-1 flex flex-col gap-1.5">
-                <div className="h-3 rounded w-2/3" style={{ background: '#1a1208' }} />
-                <div className="h-3 rounded w-1/3" style={{ background: '#1a1208' }} />
+                <div className="h-3 rounded w-2/3" style={{ background: '#221508' }} />
+                <div className="h-3 rounded w-1/3" style={{ background: '#221508' }} />
               </div>
             </div>
           ))}
@@ -153,7 +153,7 @@ export default function ActivityPage() {
                     {formatDistanceToNow(new Date(item.created_at), { addSuffix: false })} ago
                   </span>
                 </div>
-                {idx < items.length - 1 && <div className="h-px" style={{ background: '#1a1208' }} />}
+                {idx < items.length - 1 && <div className="h-px" style={{ background: '#2e1e0e' }} />}
               </div>
             )
           })}

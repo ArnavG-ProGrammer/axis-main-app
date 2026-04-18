@@ -70,7 +70,7 @@ export default function LoginPage() {
       email: data.email,
       password: data.password,
       options: {
-        emailRedirectTo: `${process.env.NEXT_PUBLIC_SITE_URL ?? window.location.origin}/onboarding`,
+        emailRedirectTo: `${process.env.NEXT_PUBLIC_SITE_URL ?? window.location.origin}/auth/callback`,
       },
     })
     if (error) {

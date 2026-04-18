@@ -67,7 +67,7 @@ export default function CompanyCard({ company, isFollowing: initialFollowing = f
       {/* Sector badge */}
       <span
         className="self-start text-[10px] font-mono px-2 py-0.5 rounded"
-        style={{ background: '#0a0806', border: '1px solid #2e1e0e', color: '#7a6654', fontFamily: "'IBM Plex Mono', monospace" }}
+        style={{ background: '#150e05', border: '1px solid #2e1e0e', color: '#7a6654', fontFamily: "'IBM Plex Mono', monospace" }}
       >
         {company.sector}
       </span>

@@ -163,7 +163,7 @@ export default function LegalPage() {
   return (
     <div className="flex min-h-screen">
       {/* Left panel */}
-      <div className="flex-1 px-6 py-6 border-r" style={{ borderColor: '#1a1208' }}>
+      <div className="flex-1 px-6 py-6 border-r" style={{ borderColor: '#2e1e0e' }}>
         <h1 className="text-3xl font-bold mb-6" style={{ color: '#f5ede3', fontFamily: "'Barlow Condensed', sans-serif" }}>Legal Documents</h1>
 
         {/* Doc type tabs */}

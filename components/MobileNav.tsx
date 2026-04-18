@@ -21,7 +21,7 @@ export default function MobileNav() {
   return (
     <nav
       className="fixed bottom-0 left-0 right-0 z-30 flex md:hidden"
-      style={{ background: '#0a0806', borderTop: '1px solid #1a1208', paddingBottom: 'env(safe-area-inset-bottom)' }}
+      style={{ background: '#150e05', borderTop: '1px solid #2e1e0e', paddingBottom: 'env(safe-area-inset-bottom)' }}
     >
       {NAV.map(({ href, icon: Icon, label }) => {
         const active = isActive(href)

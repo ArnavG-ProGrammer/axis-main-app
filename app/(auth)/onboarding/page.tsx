@@ -186,7 +186,7 @@ export default function OnboardingPage() {
   return (
     <div
       className="w-full max-w-[520px] rounded p-10"
-      style={{ background: '#1a1208', border: '1px solid #2e1e0e' }}
+      style={{ background: '#221508', border: '1px solid #2e1e0e' }}
     >
       <div className="mb-6">
         <AxisLogo size="sm" />
@@ -232,9 +232,9 @@ export default function OnboardingPage() {
 
               <div>
                 <label className={labelClass} style={labelStyle}>Sector</label>
-                <select className={selectClass} style={{ ...inputStyle, background: '#1a1208' }} {...step1.register('sector')}>
-                  <option value="" style={{ background: '#1a1208' }}>Select sector...</option>
-                  {SECTORS.map(s => <option key={s} value={s} style={{ background: '#1a1208' }}>{s}</option>)}
+                <select className={selectClass} style={{ ...inputStyle, background: '#221508' }} {...step1.register('sector')}>
+                  <option value="" style={{ background: '#221508' }}>Select sector...</option>
+                  {SECTORS.map(s => <option key={s} value={s} style={{ background: '#221508' }}>{s}</option>)}
                 </select>
                 {step1.formState.errors.sector && <p className={errorClass} style={errorStyle}>{step1.formState.errors.sector.message}</p>}
               </div>
@@ -290,9 +290,9 @@ export default function OnboardingPage() {
 
               <div>
                 <label className={labelClass} style={labelStyle}>Team Size</label>
-                <select className={selectClass} style={{ ...inputStyle, background: '#1a1208' }} {...step2.register('team_size')}>
-                  <option value="" style={{ background: '#1a1208' }}>Select size...</option>
-                  {TEAM_SIZES.map(s => <option key={s} value={s} style={{ background: '#1a1208' }}>{s}</option>)}
+                <select className={selectClass} style={{ ...inputStyle, background: '#221508' }} {...step2.register('team_size')}>
+                  <option value="" style={{ background: '#221508' }}>Select size...</option>
+                  {TEAM_SIZES.map(s => <option key={s} value={s} style={{ background: '#221508' }}>{s}</option>)}
                 </select>
               </div>
 
@@ -362,7 +362,7 @@ export default function OnboardingPage() {
             <p className="text-sm mb-6" style={{ color: '#7a6654', fontFamily: "'IBM Plex Mono', monospace" }}>Step 4 of 4 — Review and launch</p>
 
             {/* Summary card */}
-            <div className="rounded p-4 mb-6" style={{ background: '#0a0806', border: '1px solid #2e1e0e' }}>
+            <div className="rounded p-4 mb-6" style={{ background: '#150e05', border: '1px solid #2e1e0e' }}>
               {/* Avatar */}
               <div className="flex items-center gap-3 mb-4">
                 <div

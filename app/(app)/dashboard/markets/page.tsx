@@ -53,7 +53,7 @@ function TradingViewWidget({ ticker }: { ticker: string }) {
       theme: 'dark',
       style: '1',
       locale: 'en',
-      backgroundColor: '#0a0806',
+      backgroundColor: '#150e05',
       gridColor: '#1a1208',
       hide_top_toolbar: false,
       hide_legend: false,
@@ -266,8 +266,8 @@ export default function MarketsPage() {
 
           {/* Chart + news */}
           <div className="flex-1 flex flex-col gap-5">
-            <div className="rounded overflow-hidden" style={{ border: '1px solid #1a1208' }}>
-              <div className="px-4 py-3 flex items-center gap-3" style={{ background: '#0a0806', borderBottom: '1px solid #1a1208' }}>
+            <div className="rounded overflow-hidden" style={{ border: '1px solid #2e1e0e' }}>
+              <div className="px-4 py-3 flex items-center gap-3" style={{ background: '#150e05', borderBottom: '1px solid #2e1e0e' }}>
                 <span className="text-xl font-bold" style={{ color: '#f5ede3', fontFamily: "'Barlow Condensed', sans-serif" }}>{selectedTicker}</span>
                 <span className="text-xs font-mono" style={{ color: '#7a6654', fontFamily: "'IBM Plex Mono', monospace" }}>
                   {DEFAULT_TICKERS.find(d => d.ticker === selectedTicker)?.name ?? selectedTicker}
@@ -277,11 +277,11 @@ export default function MarketsPage() {
             </div>
 
             {/* News */}
-            <div className="rounded overflow-hidden" style={{ border: '1px solid #1a1208' }}>
-              <div className="px-4 py-3" style={{ background: '#0a0806', borderBottom: '1px solid #1a1208' }}>
+            <div className="rounded overflow-hidden" style={{ border: '1px solid #2e1e0e' }}>
+              <div className="px-4 py-3" style={{ background: '#150e05', borderBottom: '1px solid #2e1e0e' }}>
                 <p className="text-[10px] font-mono uppercase tracking-widest" style={{ color: '#7a6654', fontFamily: "'IBM Plex Mono', monospace" }}>Financial News</p>
               </div>
-              <div style={{ background: '#0a0806' }}>
+              <div style={{ background: '#150e05' }}>
                 <TradingViewNews />
               </div>
             </div>

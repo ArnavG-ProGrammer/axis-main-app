@@ -71,7 +71,7 @@ export default function LeftSidebar() {
   return (
     <aside
       className="fixed left-0 top-0 h-screen flex flex-col z-20 overflow-y-auto"
-      style={{ width: 240, background: '#0a0806', borderRight: '1px solid #1a1208' }}
+      style={{ width: 240, background: '#150e05', borderRight: '1px solid #2e1e0e' }}
     >
       {/* Logo */}
       <div className="px-5 py-6 flex-shrink-0">

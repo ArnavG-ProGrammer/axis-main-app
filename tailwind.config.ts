@@ -11,9 +11,9 @@ const config: Config = {
       colors: {
         // AXIS design tokens
         bg: {
-          base: "#0f0c08",
-          elevated: "#1a1208",
-          surface: "#0a0806",
+          base: "#1a1208",
+          elevated: "#221508",
+          surface: "#150e05",
           border: "#2e1e0e",
           'border-hover': "#3a2810",
         },
